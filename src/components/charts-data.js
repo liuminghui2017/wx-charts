@@ -351,8 +351,9 @@ export function getYAxisTextList(series, opts, config) {
     data = data.filter((item) => {
         return item !== null;
     });
-    let minData = Math.min.apply(this, data);
-    let maxData = Math.max.apply(this, data);
+    // fix bug: when data is empty
+    let minData = data.length > 0 ? Math.min.apply(this, data) : 0;
+    let maxData = data.length > 0 ? Math.max.apply(this, data) : 4;
     if (typeof opts.yAxis.min === 'number') {
         minData = Math.min(opts.yAxis.min, minData);
     }

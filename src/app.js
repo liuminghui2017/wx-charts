@@ -37,6 +37,8 @@ let Charts = function(opts) {
 Charts.prototype.updateData = function (data = {}) {
     this.opts.series = data.series || this.opts.series;
     this.opts.categories = data.categories || this.opts.categories;
+    this.opts.yAxis = data.yAxis || this.opts.yAxis
+    this.opts.xAxis = data.xAxis || this.opts.xAxis
 
     this.opts.title = assign({}, this.opts.title, data.title || {});
     this.opts.subtitle = assign({}, this.opts.subtitle, data.subtitle || {});
